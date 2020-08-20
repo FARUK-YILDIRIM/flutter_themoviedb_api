@@ -130,7 +130,12 @@ class MovieTile extends StatelessWidget {
                   color: Colors.black),
             ),
           ),
-
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              movies[index].overview,
+            ),
+          ),
           Divider(color: Colors.grey.shade500),
         ],
       ),
