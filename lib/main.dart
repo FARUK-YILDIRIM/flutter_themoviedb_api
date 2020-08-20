@@ -52,12 +52,18 @@ class _MoviesListingState extends State<MoviesListing> {
     fetchMovies();
 
     return Scaffold(
-      //SingleChildScrollView to provide scrolling for flexible data rendering
-      body: SingleChildScrollView(
-        child: movies != null
-            ? Text("API response\n $movies")
-            : Text("Loading ..."),
-      ),
-    );
+        //Rendering movies in ListView
+        body: ListView.builder(
+      itemCount: movies == null ? 0 : movies.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          //Adding padding around the list row
+          padding: const EdgeInsets.all(8.0),
+
+          //Displaying title of the movie only for now
+          child: Text(movies[index]["title"]),
+        );
+      },
+    ));
   }
 }
