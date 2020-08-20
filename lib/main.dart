@@ -136,6 +136,22 @@ class MovieTile extends StatelessWidget {
               movies[index].overview,
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(9),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(Icons.star, color: Colors.black, size: 15),
+                Text(
+                  movies[index].vote_average.toString(),
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          ),
           Divider(color: Colors.grey.shade500),
         ],
       ),
