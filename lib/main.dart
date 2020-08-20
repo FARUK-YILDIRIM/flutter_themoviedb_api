@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() => runApp(MoviesApp());
 
@@ -30,7 +31,7 @@ class _MoviesListingState extends State<MoviesListing> {
     final apiEndPoint =
         "http://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc";
     final apiResponse = await http.get(apiEndPoint);
-    return apiResponse;
+    return json.decode(apiResponse.body);
   }
 
   //Method to fetch movies from network
