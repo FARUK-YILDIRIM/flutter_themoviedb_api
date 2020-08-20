@@ -47,9 +47,13 @@ class _MoviesListingState extends State<MoviesListing> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     fetchMovies();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
         itemCount: movies == null ? 0 : movies.length,
