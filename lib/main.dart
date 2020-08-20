@@ -119,7 +119,19 @@ class MovieTile extends StatelessWidget {
                         movies[index].poster_path),
                   ),
                 )
-              : Divider(color: Colors.grey.shade500),
+              : Container(), //Empty container when image is not available
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              movies[index].title,
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black),
+            ),
+          ),
+
+          Divider(color: Colors.grey.shade500),
         ],
       ),
     );
