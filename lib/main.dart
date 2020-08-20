@@ -42,7 +42,7 @@ class _MoviesListingState extends State<MoviesListing> {
     var data = await MoviesProvider.getJson();
 
     setState(() {
-      movies = data;
+      movies = data['results'];
     });
   }
 
