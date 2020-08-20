@@ -8,7 +8,19 @@ class MoviesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      home: MoviesListing(),
     );
+  }
+}
+
+class MoviesListing extends StatefulWidget {
+  @override
+  _MoviesListingState createState() => _MoviesListingState();
+}
+
+class _MoviesListingState extends State<MoviesListing> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
   }
 }
