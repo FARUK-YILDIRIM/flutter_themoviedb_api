@@ -56,7 +56,7 @@ class _MoviesListingState extends State<MoviesListing> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(movies[index].title),
+            child: MovieTile(movies, index),
           );
         },
       ),
@@ -96,4 +96,32 @@ class MovieModel {
         overview = json['overview'],
         release_date = json['release_date'],
         backdrop_path = json['backdrop_path'];
+}
+
+class MovieTile extends StatelessWidget {
+  final List<MovieModel> movies;
+  final index;
+
+  const MovieTile(this.movies, this.index);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          movies[index].poster_path != null
+              ? Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 2,
+                  child: Image(
+                    image: NetworkImage(MoviesProvider.imagePathPrefix +
+                        movies[index].poster_path),
+                  ),
+                )
+              : Divider(color: Colors.grey.shade500),
+        ],
+      ),
+    );
+  }
 }
